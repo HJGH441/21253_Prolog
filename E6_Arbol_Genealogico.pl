@@ -215,3 +215,34 @@ primo_de(Santiago, Jerry).
 primo_de(Ines, Jerry).
 
 
+
+
+son_hermanos(A,C) :- padre_de(B,A), padre_de(B,C).
+
+son_suegros(A,C) :- padre_de(A,B), esposo_de(C,B).
+son_suegroM(A,C) :- padre_de(A,B), esposa_de(C,B).
+
+son_suegras(A,C) :- madre_de(A,B), esposo_de(C,B).
+son_suegraM(A,C) :- madre_de(A,B), esposa_de(C,B).
+
+
+son_yerno(A,C) :- madre_de(C,B), esposo_de(A,B).
+son_nuera(A,C) :- madre_de(C,B), esposa_de(A,B).
+
+son_yernopadre(A,C) :- padre_de(C,B), esposo_de(A,B).
+son_nuerapadre(A,C) :- padre_de(C,B), esposa_de(A,B).
+
+
+cuñado(A,C) :- esposo_de(C,B) , hermano_de(B,A).
+cuñadoM(A,C) :- esposo_de(C,B) , hermana_de(B,A).
+
+cuñada(A,C) :- esposa_de(C,B) , hermano_de(B,A).
+cuñadaM(A,C) :- esposa_de(C,B) , hermana_de(B,A).
+
+nietos_de(C,A) :- padre_de(A,B), padre_de(B,C).
+nietos_deM(C,A) :- padre_de(A,B), madre_de(B,C).
+nietos_dem2(C,A) :- madre_de(A,B), madre_de(B,C).
+nietos_dem3(C,A) :- madre_de(A,B), padre_de(B,C).
+
+
+
